@@ -1,0 +1,11 @@
+<h1>All Mantras</h1>
+	<div>
+		<ul>
+			<% @mantras.each do |mantra| %>
+			Main Focus:
+			<div>
+			∆<%= mantra.focus %>
+			</div>
+		<% end %>
+		</ul>
+	</div>
