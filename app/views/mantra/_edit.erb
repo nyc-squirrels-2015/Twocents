@@ -1,0 +1,7 @@
+<div>
+	<form action="/mantra/<%= @mantra.id %>" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="text" name="mantra[focus]" placeholder="<%= @mantra.focus %>">
+		<input type="submit" value="Edit">
+	</form>
+</div>
