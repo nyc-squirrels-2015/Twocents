@@ -13,6 +13,6 @@ post '/mantra/new' do
 end 
 
 get '/mantra/:id' do |id|
-	mantra = Mantra.find(id)
-	erb :'/mantra/id'
+	@mantra = Mantra.find(id)
+	erb :'/mantra/show'
 end 
