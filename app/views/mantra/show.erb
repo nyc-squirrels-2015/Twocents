@@ -1,0 +1,15 @@
+<a href="/mantra/all">All Mantras</a>
+
+<div>
+	<h2>Focus Number [<%= @mantra.id %>]</h2>
+	<a href="/mantra/<%= @mantra.id %>"><%= @mantra.focus %></a>
+</div>
+
+<!-- Add partial here for adding response to Mantra -->
+
+<div id="responde">
+	<h3>Responses</h3>
+		<ul>
+			<%= @mantra.responses %>
+		</ul>
+</div>

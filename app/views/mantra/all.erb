@@ -4,7 +4,8 @@
 			<% @mantras.each do |mantra| %>
 			Main Focus:
 			<div>
-			∆<%= mantra.focus %>
+			<a href="/mantra/<%= mantra.id %>">∆<%= mantra.focus %></a>
+			<!-- make triangle a separate a link with a class to target with ajax later   -->
 			</div>
 		<% end %>
 		</ul>
