@@ -1,10 +1,11 @@
 <h1>All Mantras</h1>
 	<div>
 		<ul>
-			<% @mantras.each do |mantra| %>
 			Main Focus:
+			<% @mantras.each do |mantra| %>
 			<div>
 			<a href="/mantra/<%= mantra.id %>">∆<%= mantra.focus %></a>
+			by: <%= mantra.user_id %>
 			<!-- make triangle a separate a link with a class to target with ajax later   -->
 			</div>
 		<% end %>
