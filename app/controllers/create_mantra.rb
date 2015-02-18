@@ -25,7 +25,7 @@ put '/mantra/:id' do |id|
 	redirect("/mantra/#{@mantra.id}")
 end 
 
-delete '/mantra/:id' do |id|
+delete '/mantra/:id/delete' do |id|
 	Mantra.find(id).destroy 
 
 	redirect("/mantra/all")

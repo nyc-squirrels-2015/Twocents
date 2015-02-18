@@ -10,7 +10,7 @@ post '/login' do
   user = User.find_by(name: params[:user][:name])
   if user.try(:authenticate, params[:user][:password])
     session[:user_id] = user.id
-    redirect "/user/#{user.id}"
+    redirect "/mantra/new"
   else
     redirect '/login'
   end
@@ -20,6 +20,7 @@ get '/user/:id' do |id|
   @user = User.find(id)
   erb :'auth/user'
 end 
+
 
 get '/signup' do
   erb :'auth/signup'

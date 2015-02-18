@@ -6,7 +6,7 @@
 <div class="user-mantras">
 	<ol>
 	<% @user.authored_mantras.each do |mantra| %>
-	<a href="mantra.id"><li><%= mantra.focus %></li></a>
+	<a href="/mantra/<%= mantra.id %>"><li><%= mantra.focus %></li></a>
 	
 	</ol>
 	<% end %>
