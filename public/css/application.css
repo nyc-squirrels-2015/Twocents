@@ -43,6 +43,12 @@ a:hover {
     color: #000;
     text-decoration: underline;
 }
+.user-mantras{
+    display: none;
+}
+.response-box{
+    display: none;
+}
 
 .logo {
   height: 2em;

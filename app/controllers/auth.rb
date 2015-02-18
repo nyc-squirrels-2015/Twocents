@@ -16,6 +16,11 @@ post '/login' do
   end
 end
 
+get '/user/:id' do |id|
+  @user = User.find(id)
+  erb :'auth/user'
+end 
+
 get '/signup' do
   erb :'auth/signup'
 end

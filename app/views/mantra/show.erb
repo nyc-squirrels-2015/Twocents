@@ -3,7 +3,6 @@
 <div>
 	<h1>Your Focus Is: </h1>
 	<h3>"<%= @mantra.focus %>"</h3>
-	<!-- Focus Number [<%= @mantra.id %>] -->
 	<!-- <a href="/mantra/<%= @mantra.id %>"><%= @mantra.focus %></a> -->
 	<% if current_user %>
 	<div class="update-btns">
@@ -17,17 +16,19 @@
 </div>
 
 <!-- Add partial here for adding response to Mantra -->
-<div>
-  <form id="new-response" data-url='/response.json'>
-    <h4>Share Your Wisdom:</h4>
-     <textarea name="response[content]"></textarea>
-    	<input type="hidden" name="response[mantra_id]" value="<%= @mantra.id %>">
-    	<input type="submit" value="Share">
-  	</form>
-</div>
 
 <div id= "responde">
   <h3>Responses</h3>
+	<div id="respond-btn">
+		<input type="submit" value="Share Wisdom"> 
+	</div>
+		<div class="response-box">
+	  	<form id="new-response" data-url='/response.json'>
+	     <textarea name="response[content]"></textarea>
+	    	<input type="hidden" name="response[mantra_id]" value="<%= @mantra.id %>">
+	    	<input type="submit" value="Share">
+	  	</form>
+		</div>
   <ol>
     <% @mantra.responses.each do |response| %>
     Wisdom From: <% response.commenter.name %>
@@ -36,5 +37,9 @@
   <% end %>
   </ol>
 </div>
+
+
+
+
 
 

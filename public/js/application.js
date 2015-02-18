@@ -18,4 +18,12 @@ $(document).ready(function() {
  			}
  		})
  	})
+
+ 	$("#mantra-btn").on('click', function(){
+ 		$('.user-mantras').toggle("user-mantras");
+ 	})
+ 	$('#respond-btn').on('click', function(){
+ 		$('.response-box').toggle("response-box");
+ 	})
+
 });
