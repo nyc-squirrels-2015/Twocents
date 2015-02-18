@@ -16,3 +16,17 @@ get '/mantra/:id' do |id|
 	@mantra = Mantra.find(id)
 	erb :'/mantra/show'
 end 
+
+####EDIT AND DELETE##########
+put '/mantra/:id' do |id|
+	@mantra = Mantra.find(id)
+	@mantra.update(params[:mantra])
+
+	redirect("/mantra/#{@mantra.id}")
+end 
+
+delete '/mantra/:id' do |id|
+	Mantra.find(id).destroy 
+
+	redirect("/mantra/all")
+end 
