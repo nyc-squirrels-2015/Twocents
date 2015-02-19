@@ -17,6 +17,13 @@ post '/response/new' do
 	end 
 end 
 
+
+delete '/response/:id' do |id|
+	Response.find(id).destroy 
+
+	redirect("/mantra/all")
+end 
+
 post '/response.json' do
 	content_type :json
 	response = Response.new(params[:response])
