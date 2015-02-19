@@ -25,8 +25,13 @@ put '/mantra/:id' do |id|
 	redirect("/mantra/#{@mantra.id}")
 end 
 
-delete '/mantra/:id' do |id|
-	Mantra.find(id).destroy 
-
+delete '/mantra/:id/delete' do |id|
+	mantra = Mantra.find(id)
+	mantra.destroy
+	if request.xhr?
+		content_type :json
+		return{mantra_id: mantra.id}.to_json
+	else 
 	redirect("/mantra/all")
+end 
 end 

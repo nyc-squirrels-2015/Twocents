@@ -1,0 +1,13 @@
+<a href="/mantra/all">All Mantras</a>
+<h1>Good Afternoon, <%= @user.name %></h1>
+<div id="mantra-btn">
+	<input type="submit" value="Display Mantras"> 
+</div>
+<div class="user-mantras">
+	<ol>
+	<% @user.authored_mantras.each do |mantra| %>
+	<a href="/mantra/<%= mantra.id %>"><li><%= mantra.focus %></li></a>
+	
+	</ol>
+	<% end %>
+</div>

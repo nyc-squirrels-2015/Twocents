@@ -1,12 +1,20 @@
+<a href="/user/<%= current_user.id %>">Profile</a>
 <h1>All Mantras</h1>
 	<div>
-		<ul>
+		<ol>
+		<span class="all-mantras">
+			
 			<% @mantras.each do |mantra| %>
-			Main Focus:
-			<div>
-			<a href="/mantra/<%= mantra.id %>">∆<%= mantra.focus %></a>
-			<!-- make triangle a separate a link with a class to target with ajax later   -->
-			</div>
+			<%mantra.commenters.each do |commenter|%>
+			By: <%= commenter.name %>
+			<% end %>
+			</span>
+			<li><a href="/mantra/<%= mantra.id %>"><%= mantra.focus %></a><br><a class='vote-button' href="/upquote/<%= mantra.id %>">∆</a></li>
+			<span id="<%= mantra.id %>">
+			Upquotes: <%= mantra.upquotes.count %>
+			</span>
 		<% end %>
-		</ul>
+		</ol>
 	</div>
+
+

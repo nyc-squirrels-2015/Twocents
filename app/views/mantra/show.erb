@@ -1,24 +1,44 @@
 <a href="/mantra/all">All Mantras</a>
 
 <div>
-	<h2>Focus Number [<%= @mantra.id %>]</h2>
-	<a href="/mantra/<%= @mantra.id %>"><%= @mantra.focus %></a>
+	<h1>Your Focus Is: </h1>
+	<h3>"<%= @mantra.focus %>"</h3>
+	<!-- <a href="/mantra/<%= @mantra.id %>"><%= @mantra.focus %></a> -->
 	<% if current_user %>
 	<div class="update-btns">
 		Update Your Focus:<%= erb :'/mantra/_edit' %>
-			<form action="/mantra/<%= @mantra.id %>" value="POST">
-				<input type="hidden" name="_method" value="delete">
-				<input type="submit" value="Delete?">
-			</form>
-	</div>
+			<%= erb :'mantra/_delete' %>
 	<% end %>
+	</div>
 </div>
 
-<!-- Add partial here for adding response to Mantra -->
 
-<div id="responde">
-	<h3>Responses</h3>
-		<ul>
-			<%= @mantra.responses %>
-		</ul>
+<div id= "responde">
+  <h3>Responses</h3>
+	<div id="respond-btn">
+		<input type="submit" value="Share Wisdom"> 
+	</div>
+		<div class="response-box">
+	  	<form id="new-response" data-url='/response.json'>
+	     <textarea name="response[content]"></textarea>
+	    	<input type="hidden" name="response[mantra_id]" value="<%= @mantra.id %>">
+	    	<input type="submit" value="Share">
+	  	</form>
+		</div>
+  <ol>
+    <% @mantra.responses.each do |response| %>
+    <li><%= response.content %></li>
+  <% end %>
+  <% @mantra.commenters.each do |commenter| %>
+    Wisdom From: <%= commenter.name %>
+  
+  <% end %>
+    
+  </ol>
 </div>
+
+
+
+
+
+
