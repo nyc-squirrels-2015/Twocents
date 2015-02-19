@@ -13,7 +13,6 @@ $(document).ready(function() {
 
  			},
  			error: function(){
- 				console.log("Stuff Ain't Right")
  				failResponse.show("Stuff Ain't Right")
  				// add error handling here
  			}
@@ -39,7 +38,7 @@ $(document).ready(function() {
 
  
 
- 	function deleteRegistered(response){
+ 	function callDelete(response){
  		var mantraSelector = "#" + response.mantra_id;
  		console.log(mantraSelector);
  		$(mantraSelector).remove();
@@ -49,9 +48,9 @@ $(document).ready(function() {
  		$target = $(event.target)
  		var url = $target.attr('action');
  		event.preventDefault();
- 		$.ajax({type:"delete", url: url}).done(deleteRegistered);
+ 		$.ajax({type:"delete", url: url}).done(callDelete);
  	}
- 	$('.update-btns').on('click', 'form.delete-mantra', deleteMantra);
+ 	$('.update-btns').on('click', 'form.delete-mantra', callDelete);
 
 
  	$("#mantra-btn").on('click', function(){
